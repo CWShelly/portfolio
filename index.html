@@ -5,59 +5,79 @@
     <title>Portfolio</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/stylesheet.css">
-  </head>
-   <body>
-    <header>
-     <h1>Re:Shelly Yusuf</h1>
-    </header>
 
-    <nav class = "main-nav">
-     <address class="nav"><a href="#">
+    <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/layout.css">
+          <link rel="stylesheet" href="css/module.css">
 
-     <li>Blog</li></a></address>
+    <script id ="article-template" type="text/x-handlebars-template">
+      <article class = "clearfix" data-author = "{{author}}" data-category = "{{category}}">
+        <header>
 
-     <address class="nav"><a href="#" >
+            Shelly studies code at <address> <a href = "{{schoolUrl}}">the Code Fellows</a></address> campus in Seattle. You can check out her Github contributions <address><a href = "{{githubUrl}}">here</a></address>, and socialize with her <address><a href = "{{facebookUrl}}">here</a></address>
+            <hr>
+            <h1></h1>
+            <h1> {{title}}</h1>
+            <h2>{{publishedDate}}</h2>
 
-     <li  id = "about">About</li></a></address>
-     <address class="nav"><a href="#">
+            <p>  {{{blog}}}</p>
+            </article>
+          </header>
+            </script>
+     </head>
+       <body>
+        <header>
+         <h1 id ="name">Shelly Yusuf</h1>
+          <nav class = "main-nav">
+         <address class="nav"><a href="#">
+         <li data-content = "blog">Blog</li></a></address>
+        <address class="nav"><a href="#" >
+         <li  id = "about" data-content = "about">About</li></a></address>
+        <address class="nav"><a href="#">
+        <li data-content = "content">Contact</li></a></address>
+       </nav>
 
-     <li>Contact</li></a></address>
+     <main>
+      <div class="filter-container">
+        <ul id = "filters">
+          <li>
+            <select id = "blog-date-filter">
 
-    </nav>
-
-
-    <div class="byline">
-    <p>Shelly studies code at the<address id = "school"><a href="">Code Fellows</a></address> campus in Seattle. View her Github contributions <address id = "github"><a href="">here</a></address>, and socialize with her <address id = "facebook"><a href="">here.</a></address></p>
-
-          </div>
-
+            </select> by Date.
+          </li>
+        </ul>
+      </div>
+    </main>
+  </header>
 
 
     <section id = "articles">
- <article class ="template" data-category ="cat">
-   <header>
+   <article class ="template" data-category ="cat">
+   <header id = "slug">
       <h1 class = "headline"></h1>
       <h2 class = "publishedDate"></h2>
 
-  <section id = "blog">
+   <section id = "blog">
 
-  </section>
+   </section>
 
-    </article>
+   </article>
    </header>
 
 
 
          <script src="js/jquery-1.12.0.min.js">
          </script>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
          <script src ="js/scriptData.js">
          </script>
-         <script src = "js/scriptView.js">
 
+         <script src ="js/script.js">     </script>
+         <script src = "js/scriptView.js">
          </script>
-         <script src ="js/script.js">
-       </script>
+
 
     </body>
 </html>
