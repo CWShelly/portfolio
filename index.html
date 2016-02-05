@@ -6,10 +6,21 @@
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/stylesheet.css">
+
+
+    <script id ="article-template" type="text/x-handlebars-template">
+      <article class = "clearfix" data-author = "{{author}}" data-category = "{{category}}">
+        <header>
+            <h1> {{title}}</h1>
+            Shellystudies code at <address><a href = "{{schoolUrl}}">the Code Fellows</a></address> campus in Seattle. You can check out her Github contributions <address><a href = "{{githubUrl}}">here</a></address>, and socialize with her <address><a href = "{{facebookUrl}}">here</a></address>
+              {{{blog}}}
+            </article>
+          </header>
+            </script>
   </head>
    <body>
     <header>
-     <h1>Re:Shelly Yusuf</h1>
+     <!-- <h1>Shelly Yusuf</h1> -->
     <nav class = "main-nav">
      <address class="nav"><a href="#">
      <li data-content = "blog">Blog</li></a></address>
@@ -23,26 +34,23 @@
       <div class="filter-container">
         <ul id = "filters">
           <li>
-            <select id = "blog-date-filter">Filter by Date</select> by Date.
+            <select id = "blog-date-filter">
+
+            </select> by Date.
           </li>
         </ul>
-
       </div>
     </main>
   </header>
 
-
-
-    <div class="byline">
+    <!-- <div class="byline">
     <p>Shelly studies code at the<address id = "school"><a href="">Code Fellows</a></address> campus in Seattle. View her Github contributions <address id = "github"><a href="">here</a></address>, and socialize with her <address id = "facebook"><a href="">here.</a></address></p>
 
-          </div>
-
-
+          </div> -->
 
     <section id = "articles">
  <article class ="template" data-category ="cat">
-   <header>
+   <header id = "slug">
       <h1 class = "headline"></h1>
       <h2 class = "publishedDate"></h2>
 
@@ -57,13 +65,16 @@
 
          <script src="js/jquery-1.12.0.min.js">
          </script>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
          <script src ="js/scriptData.js">
          </script>
-         <script src = "js/scriptView.js">
 
+         <script src ="js/script.js">     </script>
+         <script src = "js/scriptView.js">
          </script>
-         <script src ="js/script.js">
-       </script>
+
 
     </body>
 </html>

@@ -1,12 +1,30 @@
 var blogView ={};
 
 blogView.handleDateSelect = function(){
-  $('main').each(function(){
-    if(!$(this).hasClass('template')){
-      var val = $(this).find('address a').text();
+  $('article').each(function(){
+    if(!$(this).hasClass('publishedDate')){
+      var val = $(this).find('h2').text();
+      console.log('home');
+      // var val = "broadway";
       var optionTag = '<option value= "' + val + '">' + val + '<option>';
-      $('blog-date-filter').append(optionTag);
+      console.log(val);
+      $('#blog-date-filter').append(optionTag);
     }
+  });
+};
+
+
+blogView.handleDateFilter = function() {
+  $('#blog-date-filter').on('change', function() {
+    if ($(this).val()) {
+      console.log('yes');
+      $('#slug').hide();
+      $('article[data-author="' + $(this).val() + '"]').fadeIn();
+    } else {
+      $('article').fadeIn();
+      $('article.template').hide();
+    }
+    $('#category-filter').val('');
   });
 };
 
@@ -21,6 +39,7 @@ blogView.handleBlogSelect = function(){
 
 $(document).ready(function(){
   blogView.handleBlogSelect();
+  blogView.handleDateFilter();
   blogView.handleDateSelect();
 
 });
