@@ -11,5 +11,8 @@ blogView.handleBlogSelect = function(){
 };
 
 
+$(document).ready(function(){
+  blogView.handleBlogSelect();
 
-blogView.handleBlogSelect();
+
+});
