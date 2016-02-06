@@ -11,18 +11,13 @@ function Article (opts){
 
 }
 
-
 Article.prototype.toHtml = function(){
   // var $newArticle = $('article.template').clone();
   // var $newArticle = $('article.template').clone();
   // var $newBlog = $('article.blog')
-
   var template = Handlebars.compile($('#article-template').text());
-
-
   return template(this);
   console.log(template);
-
 
   // var $newBio = $('.byline');
   // $newBio.find('#school a').attr('href', this.schoolUrl);

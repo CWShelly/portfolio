@@ -1,20 +1,25 @@
 var blogView ={};
 
-blogView.handleDateSelect = function(){
+blogView.handleTitle = function(){
   $('article').each(function(){
-    if(!$(this).hasClass('publishedDate')){
+    if(!$(this).hasClass('publishedDate'))
+    {
       var val = $(this).find('h2').text();
-      console.log('home');
-      // var val = "broadway";
-      var optionTag = '<option value= "' + val + '">' + val + '<option>';
-      console.log(val);
-      $('#blog-date-filter').append(optionTag);
+      // var  val =$(this).(data-)
+      // console.log(val);
+       var optionTag = '<option value="' + val + '">' + val + '</option>';
+      //  var optionTag = '<option value="' + val + '">' + val + '</option>';
+      if ($('#blog-date-filter option[value="' + val + '"]').length === 0) {
+     $('#blog-date-filter').append(optionTag);
+      // console.log(val);
+      console.log(optionTag)
+      // $('#blog-date-filter').append(optionTag);
     }
+  }
   });
 };
 
-
-blogView.handleDateFilter = function() {
+blogView.handleDateSelect = function() {
   $('#blog-date-filter').on('change', function() {
     if ($(this).val()) {
       console.log('yes');
@@ -24,11 +29,11 @@ blogView.handleDateFilter = function() {
       $('article').fadeIn();
       $('article.template').hide();
     }
-    $('#category-filter').val('');
+    $('#blog-date-filter').val('');
   });
 };
 
-blogView.handleBlogSelect = function(){
+blogView.handleBlogHandler = function(){
   var $blog = $('.nav a:first');
   $blog.on('click', function(){
     $('.byline').toggle();
@@ -38,8 +43,10 @@ blogView.handleBlogSelect = function(){
 
 
 $(document).ready(function(){
-  blogView.handleBlogSelect();
-  blogView.handleDateFilter();
-  blogView.handleDateSelect();
+  blogView.handleBlogHandler();
+  // blogView.handleDatePopulater();
+  // blogView.handleDateSelect();
+  // blogView.handleDateFilter();
+  blogView.handleTitle();
 
 });
