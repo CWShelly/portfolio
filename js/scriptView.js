@@ -5,17 +5,14 @@ blogView.handleTitle = function(){
     if(!$(this).hasClass('publishedDate'))
     {
       var val = $(this).find('h2').text();
-      // var  val =$(this).(data-)
-      // console.log(val);
-       var optionTag = '<option value="' + val + '">' + val + '</option>';
+
+    var optionTag = '<option value="' + val + '">' + val + '</option>';
       //  var optionTag = '<option value="' + val + '">' + val + '</option>';
       if ($('#blog-date-filter option[value="' + val + '"]').length === 0) {
-     $('#blog-date-filter').append(optionTag);
-      // console.log(val);
-      console.log(optionTag)
-      // $('#blog-date-filter').append(optionTag);
+           $('#blog-date-filter').append(optionTag);
+
+      }
     }
-  }
   });
 };
 
