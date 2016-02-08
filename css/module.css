@@ -1,33 +1,82 @@
-#name{
-  font-size: .5em;
+.header{
+  position:fixed;
+  width:100%;
+  background: yellow;
 }
 
-.icon-menu{
+h1{
+  color:white;
+  outline: dotted 1px black;
+
+}
+
+#blog-title{
+  color:white;
+    outline:solid 2px red;
+}
+
+#blog-date{
+  color:white;
+  outline:solid 2px red;
+}
+
+
+.nav {
+  list-style: none;
+  outline:dotted 1px orange;
+}
+
+.main-nav{
+  display:inline-block;
   float:right;
-  font-size:2.2em;
-  margin-right:3%;
-  font-size:1em;
-  color:orange;
+  border: solid 1px blue;
 }
 
-@media only screen and (min-width:640px) {
-  .icon-menu{
-    display:none;
+#articles{
+  outline: dotted 1px green;
+}
 
-  }
 
-  .main-nav ul{
-    display:block;
+div{
+  outline:dotted 1px red;
+}
 
-  }
-  .main-nav{
-    margin-left:3%;
-  }
+main{
 
-  .main-nav ul li {
-    display:inline;
-    padding-left:6%;
-    padding-right: 7%;
+  margin-top: 100px;
+  background: orange;
 
-  }
+}
+
+li{
+  list-style: none;
+}
+
+#display{
+  background: red;
+  outline: solid 4px blue;
+}
+
+#article-container{
+  outline:dotted 1px red;
+}
+
+#about-container{
+background:white;
+position: relative;
+}
+
+
+
+img{
+  max-width: 100%;
+}
+
+@media only screen and (min-width:640px){
+.icon-menu2{
+  display:none;
+  color:red;
+}
+
+
 }
