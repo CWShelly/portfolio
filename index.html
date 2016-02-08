@@ -1,86 +1,60 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/icons.css" media="screen" title="no title" charset="utf-8">
+    <!-- <link rel="stylesheet" href="styles/base.css"> -->
+    <link rel="stylesheet" href="css/module.css">
     <title>Portfolio</title>
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="css/base.css">
-        <link rel="stylesheet" href="css/layout.css">
-          <link rel="stylesheet" href="css/module.css">
+  </head>
+  <body>
 
-    <script id ="article-template" type="text/x-handlebars-template">
-      <article class = "clearfix" data-author = "{{author}}" data-category = "{{category}}">
-        <header>
+<header class = "header">
+  <h1>Shelly Yusuf</h1>
+  <ul class = "nav">
 
-            Shelly studies code at <address> <a href = "{{schoolUrl}}">the Code Fellows</a></address> campus in Seattle. You can check out her Github contributions <address><a href = "{{githubUrl}}">here</a></address>, and socialize with her <address><a href = "{{facebookUrl}}">here</a></address>
-            <hr>
-            <h1></h1>
-            <h1> {{title}}</h1>
-            <h2>{{publishedDate}}</h2>
+    <a class ="icon-menu2" href="#"></a>
+        <li class = "main-nav">Blog</li>
+    <a href ="#"><li id = "about-nav" class = "main-nav">About</li></a>
+    <li class = "main-nav">Other</li>
+  </ul>
+</header>
 
-            <p>  {{{blog}}}</p>
-            </article>
-          </header>
-            </script>
-     </head>
-       <body>
-        <header>
-         <h1 id ="name">Shelly Yusuf</h1>
-          <nav class = "main-nav">
+<main>
+  <section id = "articles" class = ".tab-content">
+    <div>
+      <ul id = "filters">
+        <li>
+          <select id="date-filters">
+            <option value ="" class ="date">--Filter by Date --</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-            <a class = "icon-menu" href ="#"></a>
+  <section id = "display">
 
-         <address class="nav"><a href="#">
-         <li data-content = "blog">Blog</li></a></address>
-        <address class="nav"><a href="#" >
-         <li  id = "about" data-content = "about">About</li></a></address>
-        <address class="nav"><a href="#">
-        <li data-content = "content">Contact</li></a></address>
-       </nav>
-
-     <main>
-      <div class="filter-container">
-        <ul id = "filters">
-          <li>
-            <select id = "blog-date-filter">
-              <option value = ""> --filter by date -- </option>
-            </select> by Date.
-          </li>
-        </ul>
-      </div>
-    </main>
-  </header>
+    <script id = "article-template" type = "text/x-handlebars-template">
+      <article id = "article-container" class = "clearfix" data-date = "{{publishedDate}}">
+        <header class = "handlebar-header">
+          <h1 id = "blog-title">{{title}}</h1>
+          <h2 id = "blog-date" >{{publishedDate}}</h2>
+            {{{blog}}}
+        </header>
+     </article>
+       <article id = "about-container" class = "clearfix">
+         <p>Shelly studies code at the <a href = "{{schoolURL}}">Code Fellows</a> campus in Seattle. Checkout her <a href = "{{githubURL}}">Github contributions</a> and socialize with her <a href = "{{facebookURL}}">here</a> <a href ="#" id = "Resume">Resume</a></p>
+    </script>
+  </section>
 
 
-    <section id = "articles">
-   <article class ="template" data-category ="cat">
-   <header id = "slug">
-      <h1 class = "headline"></h1>
-      <h2 class = "publishedDate"></h2>
-
-   <section id = "blog">
-
-   </section>
-
-   </article>
-   </header>
-
-
-
-         <script src="js/jquery-1.12.0.min.js">
-         </script>
-
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-
-         <script src ="js/scriptData.js">
-         </script>
-
-         <script src ="js/script.js">     </script>
-         <script src = "js/scriptView.js">
-         </script>
-
-
-    </body>
+      <script src ="js/jquery-1.12.0.min.js"></script>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="js/scriptData.js"></script>
+    <script src="js/script.js"></script>
+        <script src="js/scriptView.js"></script>
+  </body>
 </html>

@@ -1,49 +1,57 @@
-var blogView ={};
 
-blogView.handleTitle = function(){
+var articleView ={};
+
+articleView.populateFilters = function(){
   $('article').each(function(){
-    if(!$(this).hasClass('publishedDate'))
-    {
-      var val = $(this).find('h2').text();
+    if(!$(this).hasClass('blog-date')){
+     console.log('x');
+      var val = $(this).find('#blog-date').text();
+      console.log(val);
+      var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
 
-    var optionTag = '<option value="' + val + '">' + val + '</option>';
-      //  var optionTag = '<option value="' + val + '">' + val + '</option>';
-      if ($('#blog-date-filter option[value="' + val + '"]').length === 0) {
-           $('#blog-date-filter').append(optionTag);
+      if ($('#date-filters option[value="' + val + '"]').length === 0) {
+       $('#date-filters').append(optionTag);
+  }
+}
+      console.log(optionTag);
+    })
+  };
 
-      }
-    }
-  });
+
+
+articleView.handleDateFilter = function(){
+$('#date-filters').on('change', function(){
+  console.log('change fires');
+  if($(this).val()){
+    console.log($(this).val());
+    $('article').hide();
+    $('article[data-date="' + $(this).val() + '"]').show();
+  }else{
+    $('article').fadeIn();
+    $('article.template').hide();
+  }
+});
 };
 
-blogView.handleDateSelect = function() {
-  $('#blog-date-filter').on('change', function() {
-    if ($(this).val()) {
-      console.log('yes');
-      $('#slug').hide();
-      $('article[data-author="' + $(this).val() + '"]').fadeIn();
-    } else {
-      $('article').fadeIn();
-      $('article.template').hide();
-    }
-    $('#blog-date-filter').val('');
-  });
-};
+articleView.handleAbout = function(){
+  $('#about-nav').on('click', function(){
+    $('article').hide();
+    $('#about-container').show();
+  })
+}
 
-blogView.handleBlogHandler = function(){
-  var $blog = $('.nav a:first');
-  $blog.on('click', function(){
-    $('.byline').toggle();
-  });
-
-};
+articleView.handleResume = function(){
+  $('#Resume').on('click', function(){
+    $('article').show();
+    // $('#about-container').show();
+  })
+}
 
 
 $(document).ready(function(){
-  blogView.handleBlogHandler();
-  // blogView.handleDatePopulater();
-  // blogView.handleDateSelect();
-  // blogView.handleDateFilter();
-  blogView.handleTitle();
+    articleView.handleDateFilter();
+  articleView.populateFilters();
+  articleView.handleAbout();
+  articleView.handleResume();
 
 });
