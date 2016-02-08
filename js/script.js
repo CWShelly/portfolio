@@ -11,15 +11,15 @@ function Article (opts) {
 
 Article.prototype.toHtml = function(){
   var template = Handlebars.compile($('#article-template').text());
-  console.log("toHtml");
+  console.log('toHtml');
   return template(this);
 
-}
+};
 
 rawData.forEach(function(ele){
   articles.push(new Article(ele));
 });
 
 articles.forEach(function(a){
-  $('#articles').append(a.toHtml())
+  $('#articles').append(a.toHtml());
 });
