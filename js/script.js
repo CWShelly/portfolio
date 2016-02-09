@@ -1,5 +1,6 @@
-var articles =[];
+// var articles =[];
 
+Article.all =[];
 function Article (opts) {
   this.schoolURL = opts.schoolURL;
   this.githubURL = opts.githubURL;
@@ -7,19 +8,23 @@ function Article (opts) {
   this.publishedDate = opts.publishedDate;
   this.title = opts.title;
   this.blog = opts.blog;
-}
+};
 
 Article.prototype.toHtml = function(){
   var template = Handlebars.compile($('#article-template').text());
   console.log('toHtml');
   return template(this);
-
 };
 
-rawData.forEach(function(ele){
-  articles.push(new Article(ele));
-});
+Article.loadAll = function(){
+  rawData.forEach(function(ele){
+    console.log('line 21');
+    console.log(rawData);
+  })
+}
 
-articles.forEach(function(a){
-  $('#articles').append(a.toHtml());
-});
+Article.loadAll();
+
+Article.fetchAll = function(){
+  console.log('fetch all here');
+}
