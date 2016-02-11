@@ -47,7 +47,6 @@ articleView.handleResume = function(){
 };
 
 articleView.initIndexPage = function(){
-
   Article.all.forEach(function(a){
     $('#articles').append(a.toHtml());
     console.log('init page function working');
