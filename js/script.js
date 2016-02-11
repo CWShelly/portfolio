@@ -36,7 +36,7 @@ Article.loadAll = function(rawData){
 Article.getAll = function(){
   $.getJSON('/data/scriptData.json', function(rawData){
     Article.loadAll(rawData);
-    localStorage.rawData = JSON.stringify(Article.all);
+    localStorage.rawData = JSON.stringify(rawData);
   // articleView.initIndexPage();
   });
 };
@@ -52,7 +52,7 @@ Article.fetchAll = function(){
       console.log(xhr);
       var eTag = xhr.getResponseHeader('eTag');
       console.log(eTag);
-      if(!localStorage.eTag || eTag !== localStorage.etag){
+      if(!localStorage.eTag || eTag !== localStorage.eTag){
         console.log('changed json');
         localStorage.eTag = eTag;
         Article.getAll();
