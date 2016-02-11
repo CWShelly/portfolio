@@ -10,11 +10,7 @@ function Article (opts) {
   this.blog = opts.blog;
 }
 
-console.log(Article);
-// console.log(Article.all);
-
 Article.all = [];
-// console.log(Article.all);
 
 Article.prototype.toHtml = function(){
   var template = Handlebars.compile($('#article-template').text());
@@ -25,8 +21,9 @@ Article.prototype.toHtml = function(){
 
 Article.loadAll = function(rawData){
   console.log('loadAll');
+
   rawData.forEach(function(ele){
-    Article.all.push(rawData);
+    Article.all.push(new Article(ele));
     console.log(rawData);
   });
   console.log(Article.all);
@@ -35,16 +32,14 @@ Article.loadAll = function(rawData){
 
 Article.getAll = function(){
   $.getJSON('/data/scriptData.json', function(rawData){
-    Article.loadAll(rawData);
+    // Article.loadAll(rawData);
     localStorage.rawData = JSON.stringify(rawData);
-  // articleView.initIndexPage();
+    articleView.initIndexPage();
   });
 };
 
 Article.fetchAll = function(){
   console.log('fetch all');
-  console.log(Article.all);
-
   $.ajax({
     type:'HEAD',
     url:'data/scriptData.json',
@@ -65,6 +60,5 @@ Article.fetchAll = function(){
     Article.loadAll(data);
     localStorage.setItem('rawData', JSON.stringify(Article.all));
     articleView.initIndexPage();
-    console.log(localStorage);
   });
 };
