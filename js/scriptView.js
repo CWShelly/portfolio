@@ -9,7 +9,6 @@ articleView.populateFilters = function(){
       var val = $(this).find('#blog-date').text();
       console.log(val);
       var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
-
       if ($('#date-filters option[value="' + val + '"]').length === 0) {
         $('#date-filters').append(optionTag);
       }
@@ -19,8 +18,8 @@ articleView.populateFilters = function(){
 };
 
 
-articleView.handleDateFilter = function(){
 
+articleView.handleDateFilter = function(){
   $('#date-filters').on('change', function(){
     console.log('change fires');
     if($(this).val()){
@@ -35,7 +34,6 @@ articleView.handleDateFilter = function(){
 };
 
 articleView.handleAbout = function(){
-
   $('#about-nav').on('click', function(){
     $('article').hide();
     $('#about-container').show();
@@ -43,25 +41,26 @@ articleView.handleAbout = function(){
 };
 
 articleView.handleResume = function(){
-
   $('#Resume').on('click', function(){
     $('article').show();
   });
 };
 
-
 articleView.initIndexPage = function(){
-  console.log("initting");
+
   Article.all.forEach(function(a){
     $('#articles').append(a.toHtml());
     console.log('init page function working');
   });
 
+// console.log('under init');
   articleView.handleDateFilter();
   articleView.populateFilters();
   articleView.handleAbout();
   articleView.handleResume();
 };
+
+
 
 
 $(document).ready(function(){
