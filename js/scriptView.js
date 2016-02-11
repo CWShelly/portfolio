@@ -2,13 +2,13 @@
 var articleView ={};
 
 articleView.populateFilters = function(){
+
   $('article').each(function(){
     if(!$(this).hasClass('blog-date')){
       console.log('x');
       var val = $(this).find('#blog-date').text();
       console.log(val);
       var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
-
       if ($('#date-filters option[value="' + val + '"]').length === 0) {
         $('#date-filters').append(optionTag);
       }
@@ -43,15 +43,26 @@ articleView.handleAbout = function(){
 articleView.handleResume = function(){
   $('#Resume').on('click', function(){
     $('article').show();
-    // $('#about-container').show();
   });
 };
 
+articleView.initIndexPage = function(){
 
-$(document).ready(function(){
+  Article.all.forEach(function(a){
+    $('#articles').append(a.toHtml());
+    console.log('init page function working');
+  });
+
+// console.log('under init');
   articleView.handleDateFilter();
   articleView.populateFilters();
   articleView.handleAbout();
   articleView.handleResume();
+};
 
+
+
+
+$(document).ready(function(){
+  articleView.initIndexPage();
 });
