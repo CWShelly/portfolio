@@ -1,6 +1,4 @@
 
-
-
 function Article (opts) {
   this.schoolURL = opts.schoolURL;
   this.githubURL = opts.githubURL;
@@ -14,32 +12,27 @@ Article.all = [];
 
 Article.prototype.toHtml = function(){
   var template = Handlebars.compile($('#article-template').text());
-  console.log('toHtml');
   return template(this);
 };
 
 
 Article.loadAll = function(rawData){
-  console.log('loadAll');
-
   rawData.forEach(function(ele){
     Article.all.push(new Article(ele));
-    console.log(rawData);
   });
-  console.log(Article.all);
 };
 
 
 Article.getAll = function(){
   $.getJSON('/data/scriptData.json', function(rawData){
-    // Article.loadAll(rawData);
     localStorage.rawData = JSON.stringify(rawData);
-    articleView.initIndexPage();
+    // articleView.initIndexPage();
   });
 };
 
 Article.fetchAll = function(){
   console.log('fetch all');
+
   $.ajax({
     type:'HEAD',
     url:'data/scriptData.json',
