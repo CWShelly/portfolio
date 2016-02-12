@@ -2,12 +2,9 @@
 var articleView ={};
 
 articleView.populateFilters = function(){
-
   $('article').each(function(){
     if(!$(this).hasClass('blog-date')){
-      console.log('x');
       var val = $(this).find('#blog-date').text();
-      console.log(val);
       var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
       if ($('#date-filters option[value="' + val + '"]').length === 0) {
         $('#date-filters').append(optionTag);
@@ -16,8 +13,6 @@ articleView.populateFilters = function(){
     console.log(optionTag);
   });
 };
-
-
 
 articleView.handleDateFilter = function(){
   $('#date-filters').on('change', function(){
@@ -52,14 +47,11 @@ articleView.initIndexPage = function(){
     console.log('init page function working');
   });
 
-// console.log('under init');
   articleView.handleDateFilter();
   articleView.populateFilters();
   articleView.handleAbout();
   articleView.handleResume();
 };
-
-
 
 
 $(document).ready(function(){

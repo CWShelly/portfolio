@@ -1,64 +1,66 @@
+(function(module){
+
+  function Article (opts) {
+    this.schoolURL = opts.schoolURL;
+    this.githubURL = opts.githubURL;
+    this.signed = opts.signed;
+    this.facebookURL = opts.facebookURL;
+    this.publishedDate = opts.publishedDate;
+    this.title = opts.title;
+    this.blog = opts.blog;
+    this.contents = opts.contents;
+  }
 
 
-
-function Article (opts) {
-  this.schoolURL = opts.schoolURL;
-  this.githubURL = opts.githubURL;
-  this.facebookURL = opts.facebookURL;
-  this.publishedDate = opts.publishedDate;
-  this.title = opts.title;
-  this.blog = opts.blog;
-}
-
-Article.all = [];
-
-Article.prototype.toHtml = function(){
-  var template = Handlebars.compile($('#article-template').text());
-  console.log('toHtml');
-  return template(this);
-};
+  Article.all = [];
 
 
-Article.loadAll = function(rawData){
-  console.log('loadAll');
+  Article.prototype.toHtml = function(){
+    var template = Handlebars.compile($('#article-template').text());
+    return template(this);
+  };
 
-  rawData.forEach(function(ele){
-    Article.all.push(new Article(ele));
-    console.log(rawData);
-  });
-  console.log(Article.all);
-};
+  Article.loadAll = function(rawData){
+    rawData.forEach(function(ele){
+      Article.all.push(new Article(ele));
+    });
+  };
 
 
-Article.getAll = function(){
-  $.getJSON('/data/scriptData.json', function(rawData){
-    // Article.loadAll(rawData);
-    localStorage.rawData = JSON.stringify(rawData);
-    articleView.initIndexPage();
-  });
-};
+  Article.getAll = function(){
+    $.getJSON('/data/scriptData.json', function(rawData){
+      localStorage.rawData = JSON.stringify(rawData);
+    // articleView.initIndexPage();
+    });
+  };
 
-Article.fetchAll = function(){
-  console.log('fetch all');
-  $.ajax({
-    type:'HEAD',
-    url:'data/scriptData.json',
-    success:function(data, message, xhr){
-      console.log(xhr);
-      var eTag = xhr.getResponseHeader('eTag');
-      console.log(eTag);
-      if(!localStorage.eTag || eTag !== localStorage.eTag){
-        console.log('changed json');
-        localStorage.eTag = eTag;
-        Article.getAll();
+  Article.fetchAll = function(){
+    console.log('fetch all');
+
+    $.ajax({
+      type:'HEAD',
+      url:'data/scriptData.json',
+      success:function(data, message, xhr){
+        console.log(xhr);
+        var eTag = xhr.getResponseHeader('eTag');
+        console.log(eTag);
+        if(!localStorage.eTag || eTag !== localStorage.eTag){
+          console.log('changed json');
+          localStorage.eTag = eTag;
+          Article.getAll();
+
+        }
       }
-    }
-  });
+    });
 
 
-  $.getJSON('data/scriptData.json', function(data){
-    Article.loadAll(data);
-    localStorage.setItem('rawData', JSON.stringify(Article.all));
-    articleView.initIndexPage();
-  });
-};
+    $.getJSON('data/scriptData.json', function(data){
+      Article.loadAll(data);
+      localStorage.setItem('rawData', JSON.stringify(Article.all));
+      articleView.initIndexPage();
+    });
+  };
+
+
+  module.Article = Article;
+}) (window);
