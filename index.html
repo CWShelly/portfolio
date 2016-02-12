@@ -11,7 +11,7 @@
   </head>
   <body>
 <header class = "header">
-  <h1>Shelly Yusuf</h1>
+  <h1>Shelly Yusuf </h1>
   <ul class = "nav">
     <a class ="icon-menu2" href="#"></a>
         <li class = "main-nav">Blog</li>
@@ -32,16 +32,20 @@
     </div>
   </section>
   <section id = "display">
+
     <script id = "article-template" type = "text/x-handlebars-template">
       <article id = "article-container" class = "clearfix" data-date = "{{publishedDate}}">
+
         <header class = "handlebar-header">
           <h1 id = "blog-title">{{title}}</h1>
+           <p>{{contents}}</p>
           <h2 id = "blog-date" >{{publishedDate}}</h2>
-            {{{blog}}}
+            <p>{{{blog}}}</p>
         </header>
      </article>
        <article id = "about-container" class = "clearfix">
          <p>Shelly studies code at the <a href = "{{schoolURL}}">Code Fellows</a> campus in Seattle. Checkout her <a href = "{{githubURL}}">Github contributions</a> and socialize with her <a href = "{{facebookURL}}">here</a> <a href ="#" id = "Resume">Resume</a></p>
+     <!-- <p>{{contents}}</p> -->
     </script>
 
   </section>
