@@ -1,50 +1,52 @@
 .header{
   position:fixed;
   width:100%;
-  background: yellow;
+  background: orange;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1{
   color:white;
-  outline: dotted 1px black;
+  /*outline: dotted 1px black;*/
+  font-family: 'Roboto', sans-serif;
 
 }
 
 #blog-title{
   color:white;
-    outline:solid 2px red;
+    /*outline:solid 2px red;*/
 }
 
 #blog-date{
   color:white;
-  outline:solid 2px red;
+  /*outline:solid 2px red;*/
 }
 
 
 .nav {
   list-style: none;
-  outline:dotted 1px orange;
+  /*outline:dotted 1px orange;*/
 }
 
 .main-nav{
   display:inline-block;
   float:right;
-  border: solid 1px blue;
+  /*border: solid 1px blue;*/
 }
 
 #articles{
-  outline: dotted 1px green;
+  /*outline: dotted 1px green;*/
 }
 
 
 div{
-  outline:dotted 1px red;
+  /*outline:dotted 1px red;*/
 }
 
 main{
 
   margin-top: 100px;
-  background: orange;
+  background: grey;
 
 }
 
@@ -54,18 +56,21 @@ li{
 
 #display{
   background: red;
-  outline: solid 4px blue;
+  /*outline: solid 4px blue;*/
 }
 
 #article-container{
-  outline:dotted 1px red;
+  /*outline:dotted 1px red;*/
 }
 
 #about-container{
 background:white;
-position: relative;
+/*position: relative;*/
 }
-
+#content-container{
+  position:relative;
+  background: yellow;
+}
 
 
 img{

@@ -6,6 +6,7 @@
     <meta name ="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/icons.css" media="screen" title="no title" charset="utf-8">
     <!-- <link rel="stylesheet" href="styles/base.css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/module.css">
     <title>Portfolio</title>
   </head>
@@ -40,6 +41,7 @@
              <p>{{contents}}</p>
            <h2 id = "blog-date" >{{publishedDate}}</h2>
             <p>{{{blog}}}</p>
+            <p>"Crêpes" written {{numTimes}}</p>
          </header>
         </article>
           <article id = "about-container" class = "clearfix">
@@ -48,10 +50,10 @@
 
 <script id = "contents-template" type = "text/x-handlebars-template">
   <section id = "contents-container">
-    <h4>{{one}}</h4>
+    <h4>{{numTimes}}</h4>
+    <p>items here</p>
   </section>
     </script>
-
 
 
       </section>

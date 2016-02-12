@@ -43,6 +43,12 @@ articleView.handleResume = function(){
 articleView.initIndexPage = function(){
   Article.all.forEach(function(a){
     $('#articles').append(a.toHtml());
+
+  // var template = Handlebars.compile($('#contents-container').text());
+  //   Article.allCrepes().forEach(function(stat){
+  //     $('.something').append(template(stat));
+  //   })
+
   });
 
   articleView.handleDateFilter();
