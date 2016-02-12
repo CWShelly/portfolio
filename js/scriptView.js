@@ -10,7 +10,6 @@ articleView.populateFilters = function(){
         $('#date-filters').append(optionTag);
       }
     }
-    console.log(optionTag);
   });
 };
 
