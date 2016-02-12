@@ -1,19 +1,14 @@
+
+
 (function(module){
 
-  function Article (opts) {
-    this.schoolURL = opts.schoolURL;
-    this.githubURL = opts.githubURL;
-    this.signed = opts.signed;
-    this.facebookURL = opts.facebookURL;
-    this.publishedDate = opts.publishedDate;
-    this.title = opts.title;
-    this.blog = opts.blog;
-    this.contents = opts.contents;
+  function Article(opts){
+    Object.keys(opts).forEach(function(e, index, keys){
+      this[e] = opts[e];
+    },this);
   }
 
-
   Article.all = [];
-
 
   Article.prototype.toHtml = function(){
     var template = Handlebars.compile($('#article-template').text());
@@ -26,17 +21,13 @@
     });
   };
 
-
   Article.getAll = function(){
     $.getJSON('/data/scriptData.json', function(rawData){
       localStorage.rawData = JSON.stringify(rawData);
-    // articleView.initIndexPage();
     });
   };
 
   Article.fetchAll = function(){
-    console.log('fetch all');
-
     $.ajax({
       type:'HEAD',
       url:'data/scriptData.json',
@@ -45,22 +36,16 @@
         var eTag = xhr.getResponseHeader('eTag');
         console.log(eTag);
         if(!localStorage.eTag || eTag !== localStorage.eTag){
-          console.log('changed json');
           localStorage.eTag = eTag;
           Article.getAll();
-
         }
       }
     });
-
-
     $.getJSON('data/scriptData.json', function(data){
       Article.loadAll(data);
       localStorage.setItem('rawData', JSON.stringify(Article.all));
       articleView.initIndexPage();
     });
   };
-
-
   module.Article = Article;
 }) (window);
