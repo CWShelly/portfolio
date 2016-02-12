@@ -13,12 +13,15 @@
   Article.prototype.toHtml = function(){
     var template = Handlebars.compile($('#article-template').text());
     return template(this);
+
   };
 
   Article.loadAll = function(rawData){
     rawData.forEach(function(ele){
       Article.all.push(new Article(ele));
     });
+    Article.all.map(function(x){return x.blog;}).reduce(function(blogs, blog){blogs.push(blog); console.log(blogs); return blogs;},[]);
+
   };
 
   Article.getAll = function(){

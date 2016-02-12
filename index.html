@@ -10,54 +10,57 @@
     <title>Portfolio</title>
   </head>
   <body>
-<header class = "header">
-  <h1>Shelly Yusuf </h1>
-  <ul class = "nav">
-    <a class ="icon-menu2" href="#"></a>
-        <li class = "main-nav">Blog</li>
-    <a href ="#"><li id = "about-nav" class = "main-nav">About</li></a>
-    <li class = "main-nav">Other</li>
-  </ul>
-</header>
-<main>
-  <section id = "articles" class = ".tab-content">
-    <div>
-      <ul id = "filters">
-        <li>
-          <select id="date-filters">
-            <option value ="" class ="date">--Filter by Date --</option>
-          </select>
-        </li>
-      </ul>
-    </div>
-  </section>
-  <section id = "display">
+    <header class = "header">
+      <h1>Shelly Yusuf </h1>
+        <ul class = "nav">
+          <a class ="icon-menu2" href="#"></a>
+           <li class = "main-nav">Blog</li>
+           <a href ="#"><li id = "about-nav" class = "main-nav">About</li></a>
+           <li class = "main-nav">Other</li>
+        </ul>
+    </header>
+     <main>
+      <section id = "articles" class = ".tab-content">
+       <div>
+        <ul id = "filters">
+          <li>
+            <select id="date-filters">
+              <option value ="" class ="date">--Filter by Date --</option>
+            </select>
+          </li>
+        </ul>
+       </div>
+      </section>
+     <section id = "display">
 
-    <script id = "article-template" type = "text/x-handlebars-template">
-      <article id = "article-container" class = "clearfix" data-date = "{{publishedDate}}">
-
+      <script id = "article-template" type = "text/x-handlebars-template">
+        <article id = "article-container" class = "clearfix" data-date = "{{publishedDate}}">
         <header class = "handlebar-header">
-          <h1 id = "blog-title">{{title}}</h1>
-           <p>{{contents}}</p>
-          <h2 id = "blog-date" >{{publishedDate}}</h2>
+           <h1 id = "blog-title">{{title}}</h1>
+             <p>{{contents}}</p>
+           <h2 id = "blog-date" >{{publishedDate}}</h2>
             <p>{{{blog}}}</p>
-        </header>
-     </article>
-       <article id = "about-container" class = "clearfix">
-         <p>Shelly studies code at the <a href = "{{schoolURL}}">Code Fellows</a> campus in Seattle. Checkout her <a href = "{{githubURL}}">Github contributions</a> and socialize with her <a href = "{{facebookURL}}">here</a> <a href ="#" id = "Resume">Resume</a></p>
-     <!-- <p>{{contents}}</p> -->
+         </header>
+        </article>
+          <article id = "about-container" class = "clearfix">
+           <p>Shelly studies code at the <a href = "{{schoolURL}}">Code Fellows</a> campus in Seattle. Checkout her <a href = "{{githubURL}}">Github contributions</a> and socialize with her <a href = "{{facebookURL}}">here</a> <a href ="#" id = "Resume">Resume</a></p>
+        </script>
+
+<script id = "contents-template" type = "text/x-handlebars-template">
+  <section id = "contents-container">
+    <h4>{{one}}</h4>
+  </section>
     </script>
 
-  </section>
-   <script src ="js/jquery-1.12.0.min.js"></script>
-   <script src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-   <!-- <script src="js/scriptData.js"></script> -->
-   <script src="js/script.js"></script>
-   <script src="js/scriptView.js"></script>
 
-   <script>
-     Article.fetchAll();
-   </script>
 
+      </section>
+     <script src ="js/jquery-1.12.0.min.js"></script>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+     <script src="js/script.js"></script>
+     <script src="js/scriptView.js"></script>
+     <script>
+       Article.fetchAll();
+     </script>
   </body>
 </html>
