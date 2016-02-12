@@ -22,6 +22,8 @@
     });
     Article.all.map(function(x){return x.blog;}).reduce(function(blogs, blog){blogs.push(blog); console.log(blogs); return blogs;},[]);
 
+    Article.all.map(function(x){return x.blog.match(/\b\w+/g).length;}).reduce(function(a, b){return a + b;});
+
   };
 
   Article.getAll = function(){
@@ -50,5 +52,7 @@
       articleView.initIndexPage();
     });
   };
+
+
   module.Article = Article;
 }) (window);
