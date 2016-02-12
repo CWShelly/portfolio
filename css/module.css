@@ -67,6 +67,10 @@ li{
 background:white;
 /*position: relative;*/
 }
+#content-container{
+  position:relative;
+  background: yellow;
+}
 
 
 img{

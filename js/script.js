@@ -20,6 +20,8 @@
     rawData.forEach(function(ele){
       Article.all.push(new Article(ele));
     });
+
+    Article.crepeStats();
     Article.all.map(function(x){
       return x.blog;
     }
@@ -32,15 +34,31 @@
       return x.blog.match(/\b\w+/g).length;})
       .reduce(function(a, b){return a + b;});
 
-    Article.all.map(function(x){
-      return x.blog.match('crêpes')
-      .length;
-    })
-      .reduce(function(a, b){
-        return a + b;
-      });
 
+    // Article.all.map(function(x){
+    //   return x.blog.match('crêpes')
+    //   .length;
+    // })
+    //   .reduce(function(a, b){
+    //     return a + b;
+    //   });
   };
+
+Article.allCrepes = function(){
+  return Article.all(function(blog){
+    return x.blog.match('crepes')
+    .length;
+  })
+  .reduce(function(a,b){
+    return a + b;
+  });
+};
+
+Article.crepeStats = function(){
+  return{
+    numTimes:Article.allCrepes,
+  };
+}
 
   Article.getAll = function(){
     $.getJSON('/data/scriptData.json', function(rawData){
