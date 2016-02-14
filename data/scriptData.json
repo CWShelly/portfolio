@@ -1,16 +1,19 @@
-[{
-	"schoolURL": "http://www.codefellows.org/",
-	"githubURL": "https://github.com/CWShelly/",
-	"facebookURL": "https://www.facebook.com/profile.php?id=100011269957200",
-	"publishedDate": "February 3, 2016",
-	"title": "AAAGroundhog Crêpes 2",
-	"blog": "<p>(part 2)AAAI've been trying to learn French, but lately I've only had time to text a few people in France here and there throughout the day just trying to get grammar and syntax down. I'm surprised by what we end up talking about. I didn't expect to learn how the French say 'Groundhog Day', but now I know, and now I've explained our silly tradition to a woman who informed me that, in France, on the exact same day, they celebrate 'La Chandeleur', or, essentially 'The Day of Crêpes.' So, yeah, they basically celebrate February 2, with crêpes. SOOO much better than waiting for a rodent to see or not see his shadow (although the little guy IS adorable)... Sometimes things get lost in the translation. I told her that the groundhog is prediciting a short winter, but that I don't know if I believe him, and now she thinks I'm a global warming-denier. </p> "
-}, {
 
-	"schoolURL": "http://www.codefellows.org/",
-	"githubURL": "https://github.com/CWShelly/",
-	"facebookURL": "https://www.facebook.com/profile.php?id=100011269957200",
-	"publishedDate": "February 2, 2016",
-	"title": "Groundhog Crêpes",
-	"blog": "<p>I've been trying to learn French, but lately I've only had time to text a few people in France here and there throughout the day just trying to get grammar and syntax down. I'm surprised by what we end up talking about. I didn't expect to learn how the French say 'Groundhog Day', but now I know, and now I've explained our silly tradition to a woman who informed me that, in France, on the exact same day, they celebrate 'La Chandeleur', or, essentially 'The Day of Crêpes.' So, yeah, they basically celebrate February 2, with crêpes. SOOO much better than waiting for a rodent to see or not see his shadow (although the little guy IS adorable)... Sometimes things get lost in the translation. I told her that the groundhog is prediciting a short winter, but that I don't know if I believe him, and now she thinks I'm a global warming-denier. </p> "
-}]
+
+
+[
+{
+"placesVisited":"London",
+"placesToVisit":"Tobvisted",
+"blogDate":"February 2,2016",
+"blog":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+"blogTitle":"Ipsum"
+},
+{
+"placesVisited":"Colombo",
+"placesToVisit":"2bvisted",
+"blogDate": "February 5,2016",
+"blog":"International tote bag Airbus A380 Swiss emerging Washlet signature St Moritz, delightful Marylebone Beams alluring. Winkreative hand-crafted bureaux, quality of life concierge Airbus A380 premium. Scandinavian charming iconic liveable, craftsmanship K-pop exquisite the best international espresso Comme des Garçons. Conversation pintxos Gaggenau Shinkansen K-pop. Carefully curated Beams lovely Ginza, the best discerning Toto quality of life Zürich flat white punctual soft power exquisite sharp. Extraordinary Marylebone vibrant eclectic Muji Asia-Pacific Airbus A380 joy Singapore destination charming liveable global.",
+"blogTitle":"Monoclipsum"
+}
+]

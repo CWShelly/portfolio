@@ -1,66 +1,82 @@
 
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name ="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/icons.css" media="screen" title="no title" charset="utf-8">
-    <!-- <link rel="stylesheet" href="styles/base.css"> -->
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/module.css">
-    <title>Portfolio</title>
+    <title>Portfolio2(Staged)</title>
+
   </head>
   <body>
-    <header class = "header">
-      <h1>Shelly Yusuf </h1>
-        <ul class = "nav">
-          <a class ="icon-menu2" href="#"></a>
-           <li class = "main-nav">Blog</li>
-           <a href ="#"><li id = "about-nav" class = "main-nav">About</li></a>
-           <li class = "main-nav">Other</li>
-        </ul>
-    </header>
-     <main>
-      <section id = "articles" class = ".tab-content">
-       <div>
-        <ul id = "filters">
-          <li>
-            <select id="date-filters">
-              <option value ="" class ="date">--Filter by Date --</option>
-            </select>
-          </li>
-        </ul>
-       </div>
-      </section>
-     <section id = "display">
 
-      <script id = "article-template" type = "text/x-handlebars-template">
-        <article id = "article-container" class = "clearfix" data-date = "{{publishedDate}}">
-        <header class = "handlebar-header">
-           <h1 id = "blog-title">{{title}}</h1>
-             <p>{{contents}}</p>
-           <h2 id = "blog-date" >{{publishedDate}}</h2>
-            <p>{{{blog}}}</p>
-            <p>"Crêpes" written {{numTimes}}</p>
-         </header>
-        </article>
-          <article id = "about-container" class = "clearfix">
-           <p>Shelly studies code at the <a href = "{{schoolURL}}">Code Fellows</a> campus in Seattle. Checkout her <a href = "{{githubURL}}">Github contributions</a> and socialize with her <a href = "{{facebookURL}}">here</a> <a href ="#" id = "Resume">Resume</a></p>
-        </script>
+    <!-- <script id = "script-template" type = "text/x-handlebars-template">
+  <h4 class = "date" id = "date">{{blogDate}}</h4>
+    </script> -->
+<header>
 
-<script id = "contents-template" type = "text/x-handlebars-template">
-  <section id = "contents-container">
-    <h4>{{numTimes}}</h4>
-    <p>items here</p>
+  <section id = "header">
+   <h1 class = "marquee"> Shelly Yusuf</h1>
+   <ul id = "filters">
+           <li>
+             <select id="date-filters">
+               <option value ="" >Filter by Date </option>
+             </select>
+           </li>
+         </ul>
+
+         <script id = "script-template" type = "text/x-handlebars-template">
+       <h4 class = "date" id = "date">{{blogDate}}</h4>
+         </script>
+
+    <!-- <ul id = "main-nav">
+     <li class ="main-nav"><a href="#">Work</a></li>
+     <li class ="main-nav"><a href="#">Travel</a></li>
+     <li class ="main-nav"><a href="#">Blog</a></li>
+     <li class ="main-nav"><a href="#">About</a> </li>
+    </ul> -->
+
   </section>
+<main>
+
+<ul id ="main-templates">
+  <!-- <li class = "feature-template"><a id = "wander-template" href="#">Wander</a>
+<ul>
+  Places I've been ..
+  <li class = "content2-placeholder"></li>
+</ul>
+  </li> -->
+<!--
+  <li class = "feature-template"><a id = "work-template" href="#">Work</a>
+    <ul>
+
+      <li>View my <a href ="https://github.com/cwshelly">Github contributions</a></li>
+    </ul></li> -->
+
+
+  <li class = "feature-template"><a id = "write-template" href="#">Write</a>
+    <ul>
+      <li class = "content3-placeholder" id = "blog-date"></li>
+    </ul>
+    </li>
+
+
+</ul>
+
+</main>
+
+</body>
+
+
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js">
     </script>
 
-
-      </section>
-     <script src ="js/jquery-1.12.0.min.js"></script>
-      <script src = "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-     <script src="js/script.js"></script>
-     <script src="js/scriptView.js"></script>
+    <script src="js/script.js"> </script>
+    <script src="js/scriptView.js"></script>
      <script>
        Article.fetchAll();
      </script>

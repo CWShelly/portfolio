@@ -1,63 +1,57 @@
 
-var articleView ={};
+var scriptView = {};
 
-articleView.populateFilters = function(){
-  $('article').each(function(){
-    if(!$(this).hasClass('blog-date')){
-      var val = $(this).find('#blog-date').text();
+
+scriptView.populateFilters = function(){
+    console.log('pop filters run');
+
+  $('main').each(function(){
+    if(!$(this).hasClass('date')){
+      var val = $(this).find('#date').text();
+      // var val = 'epic';
+      console.log(this);
       var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
+      console.log(optionTag);
       if ($('#date-filters option[value="' + val + '"]').length === 0) {
         $('#date-filters').append(optionTag);
+
       }
     }
   });
 };
 
-articleView.handleDateFilter = function(){
+
+scriptView.handleDateFilter = function(){
   $('#date-filters').on('change', function(){
-    console.log('change fires');
+    console.log('changed fires');
     if($(this).val()){
       console.log($(this).val());
-      $('article').hide();
-      $('article[data-date="' + $(this).val() + '"]').show();
-    }else{
-      $('article').fadeIn();
-      $('article.template').hide();
+      $('#main-templates').hide();
     }
   });
 };
 
-articleView.handleAbout = function(){
-  $('#about-nav').on('click', function(){
-    $('article').hide();
-    $('#about-container').show();
-  });
+
+scriptView.initIndexPage = function(){
+  console.log('initIndex run');
+  // scriptView.populateFilters();
+
+Article.all.forEach(function(a){
+
+  // $('#main-templates').append(a.toHtml());
+    $('.content3-placeholder').append(a.toHtml());
+console.log('the line after appendtohtml');
+
+
+});
+
+// scriptView.handleDateFilter();
+scriptView.populateFilters();
+
+// console.log('pop filter first');
 };
-
-articleView.handleResume = function(){
-  $('#Resume').on('click', function(){
-    $('article').show();
-  });
-};
-
-articleView.initIndexPage = function(){
-  Article.all.forEach(function(a){
-    $('#articles').append(a.toHtml());
-
-  // var template = Handlebars.compile($('#contents-container').text());
-  //   Article.allCrepes().forEach(function(stat){
-  //     $('.something').append(template(stat));
-  //   })
-
-  });
-
-  articleView.handleDateFilter();
-  articleView.populateFilters();
-  articleView.handleAbout();
-  articleView.handleResume();
-};
-
 
 $(document).ready(function(){
-  articleView.initIndexPage();
+
+   scriptView.initIndexPage();
 });
