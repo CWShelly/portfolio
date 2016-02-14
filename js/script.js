@@ -71,7 +71,7 @@
       console.log(data);
       localStorage.setItem('rawData', JSON.stringify(Article.all));
       console.log('localStorage set');
-      scriptView.initIndexPage();
+      scriptView.initIndexPage();  
     });
   };
 

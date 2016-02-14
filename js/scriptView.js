@@ -5,7 +5,7 @@ var scriptView = {};
 scriptView.populateFilters = function(){
   console.log('pop filters run');
 
-  $('main').each(function(){
+  $('article').each(function(){
     if(!$(this).hasClass('date')){
       var val = $(this).find('#date').text();
       // var val = 'epic';
@@ -37,12 +37,15 @@ scriptView.initIndexPage = function(){
   // scriptView.populateFilters();
 
   Article.all.forEach(function(a){
+    var content3placeholder = $('.content3-placeholder');
+    console.log(content3placeholder);
+    console.log(a);
 
     $('.content3-placeholder').append(a.toHtml());
     console.log('the line after appendtohtml');
 
-$(".content2-placeholder").append(a.toWanderHtml());
-console.log('the line after Wanderappendtohtml');
+    $('.content2-placeholder').append(a.toWanderHtml());
+    console.log('the line after Wanderappendtohtml');
 
   });
 
