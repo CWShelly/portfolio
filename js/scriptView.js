@@ -3,7 +3,7 @@ var scriptView = {};
 
 
 scriptView.populateFilters = function(){
-    console.log('pop filters run');
+  console.log('pop filters run');
 
   $('main').each(function(){
     if(!$(this).hasClass('date')){
@@ -36,22 +36,23 @@ scriptView.initIndexPage = function(){
   console.log('initIndex run');
   // scriptView.populateFilters();
 
-Article.all.forEach(function(a){
+  Article.all.forEach(function(a){
 
-  // $('#main-templates').append(a.toHtml());
     $('.content3-placeholder').append(a.toHtml());
-console.log('the line after appendtohtml');
+    console.log('the line after appendtohtml');
 
+$(".content2-placeholder").append(a.toWanderHtml());
+console.log('the line after Wanderappendtohtml');
 
-});
+  });
 
 // scriptView.handleDateFilter();
-scriptView.populateFilters();
+  scriptView.populateFilters();
 
 // console.log('pop filter first');
 };
 
 $(document).ready(function(){
 
-   scriptView.initIndexPage();
+  scriptView.initIndexPage();
 });

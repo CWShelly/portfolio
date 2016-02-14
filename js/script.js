@@ -20,6 +20,15 @@
 
   };
 
+  Article.prototype.toWanderHtml = function(){
+    var template = Handlebars.compile($('#wander-template').text());
+    console.log(this);
+    console.log("handlebars compiled");
+    return template(this);
+
+
+  };
+
 
   Article.loadAll = function(rawData){
     console.log('loadAll run');
