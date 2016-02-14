@@ -1,83 +1,50 @@
-.header{
-  position:fixed;
-  width:100%;
-  background: orange;
+
+body{
   font-family: 'Roboto', sans-serif;
 }
 
-h1{
-  color:white;
-  /*outline: dotted 1px black;*/
+.marquee {
+  font-size: .75em;
   font-family: 'Roboto', sans-serif;
-
-}
-
-#blog-title{
   color:white;
-    /*outline:solid 2px red;*/
+
+}
+/*article {
+  display: none;
+
+}*/
+#header{
+  /*float:right;*/
+  /*position:fixed;*/
+  height:100px;
+  width:300px;
+  /*border:solid 1px black;*/
+  background: rgba(107,120,156,0.35);
 }
 
-#blog-date{
-  color:white;
-  /*outline:solid 2px red;*/
-}
+a{
+    text-decoration: none;
+    font-size:1em;
+    color:white;
 
-
-.nav {
-  list-style: none;
-  /*outline:dotted 1px orange;*/
 }
 
 .main-nav{
   display:inline-block;
+  margin-top:25px;
+  margin-right:10px;
   float:right;
-  /*border: solid 1px blue;*/
-}
-
-#articles{
-  /*outline: dotted 1px green;*/
 }
 
 
-div{
-  /*outline:dotted 1px red;*/
-}
-
-main{
-
-  margin-top: 100px;
-  background: grey;
-
-}
-
-li{
-  list-style: none;
-}
-
-#display{
-  background: red;
-  /*outline: solid 4px blue;*/
-}
-
-#article-container{
-  /*outline:dotted 1px red;*/
-}
-
-#about-container{
-background:white;
-/*position: relative;*/
-}
-
-
-img{
-  max-width: 100%;
-}
-
-@media only screen and (min-width:640px){
-.icon-menu2{
-  display:none;
-  color:red;
-}
-
+.feature-template{
+  margin-top:25px;
+  display:inline-block;
+  height:200px;
+  overflow: auto;
+  width:300px;
+  /*border:solid 1px black;*/
+  background: rgba(107,120,156,0.5);
+    color:white;
 
 }
