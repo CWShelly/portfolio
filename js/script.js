@@ -8,6 +8,9 @@
     },this);
   }
 
+var notPlaces = ['Middle Earth', 'The Delta Quadrant', 'Mypos'];
+
+
 
 
   Article.all = [];
@@ -26,9 +29,22 @@
     console.log("handlebars compiled");
     return template(this);
 
+;
 
   };
 
+
+  Article.allX = function(){
+    var notPlaces = ["Middle Earth", "The Delta Quadrant", "Mypos"];
+    return Article.all(function(x){
+      return x.placesVisited;
+      return x.placesNotVisited;
+      return x.placesVisted.concat(placesNotVisited);
+    })
+    .reduce(function(a,b){
+      return a + b;
+    });
+  };
 
   Article.loadAll = function(rawData){
     console.log('loadAll run');
@@ -71,7 +87,7 @@
       console.log(data);
       localStorage.setItem('rawData', JSON.stringify(Article.all));
       console.log('localStorage set');
-      scriptView.initIndexPage();  
+      scriptView.initIndexPage();
     });
   };
 
