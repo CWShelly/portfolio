@@ -12,7 +12,7 @@
          };
          module.articlesController = articlesController;
     }})(window);
----
+
 
 
     // (function(module) {
