@@ -1,0 +1,28 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "S. Yusuf",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-request-proxy": "^1.0.10"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CWShelly/portfolio.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "bugs": {
+    "url": "https://github.com/CWShelly/portfolio/issues"
+  },
+  "homepage": "https://github.com/CWShelly/portfolio#readme"
+}
