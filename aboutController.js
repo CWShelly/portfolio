@@ -1,6 +1,6 @@
 (function(module){
   var aboutController = {};
-  about.Controller.index = function(){
+  aboutController.index = function(){
     $('.github-display').hide();
     $('#display-about').show();
   };
