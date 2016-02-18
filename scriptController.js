@@ -1,17 +1,21 @@
 (function(module){
-  var articlesController ={};
+  var articlesController = {};
 
   Article.createTable();
-    articlesController.index = function(){
-      Article.fetchAll(scriptView.initIndexPage);
-         articlesController.index = function(){
-           Article.fetchAll(scriptView.initIndexPage);
 
-          //  $('main > section').hide(); /
-          //  $('#articles').show();
-         };
-         module.articlesController = articlesController;
-    }})(window);
+  articlesController.index = function(){
+
+    Article.fetchAll(scriptView.initIndexPage);
+
+
+
+    $('main > section').hide();
+    $('#articles').show();
+  };
+
+  module.articlesController = articlesController;
+
+})(window);
 
 
 

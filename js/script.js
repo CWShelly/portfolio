@@ -47,8 +47,8 @@
   // };
 
 
-Article.createTable = function(callback){
-  webDB.execute(
+  Article.createTable = function(callback){
+    webDB.execute(
     'CREATE TABLE IF NOT EXISTS articles(' +
     'id INTEGER PRIMARY KEY,' +
     'placesVisted VARCHAR(255) NOT NULL,' +
@@ -62,53 +62,53 @@ Article.createTable = function(callback){
     if (callback) callback();
   }
 );
-};
+  };
 
 
 
-Article.truncateTable = function(callback){
-  webDB.execute(
+  Article.truncateTable = function(callback){
+    webDB.execute(
     'DELETE FROM articles;',
     callback
   );
-};
+  };
 
-Article.prototype.insertRecord = function(callback){
-  webDB.execute(
-    [
-      {
-        'sql':'INSERT INTO articles(placesVisited, placesNotVisited, blogDate, blog, blogTitle) VALUES(?,?,?,?,?);',
-        'data':[this.placesVisted, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle],
-      }
-    ],
+  Article.prototype.insertRecord = function(callback){
+    webDB.execute(
+      [
+        {
+          'sql':'INSERT INTO articles(placesVisited, placesNotVisited,blogDate,     blog, blogTitle) VALUES(?,?,?,?,?);',
+          'data':[this.placesVisted, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle],
+        }
+      ],
     callback
   );
-};
+  };
 
-Article.prototype.deleteRecord = function(callback){
-  webDB.execute(
-    [
-      {
-      'sql': 'DELETE FROM articles WHERE id = ?;',
-      'data':[this.id]
-    }
-  ],
+  Article.prototype.deleteRecord = function(callback){
+    webDB.execute(
+      [
+        {
+          'sql': 'DELETE FROM articles WHERE id = ?;',
+          'data':[this.id]
+        }
+      ],
   callback
 );
-};
+  };
 
 
-Article.prototype.updateRecord = function(callback){
-  webDB.execute(
-    [
-      {
-        'sql': 'UPDATE articles SET placesVisted = ?, placesNotVisited = ?, blogDate = ?, blog = ?, blogTitle =?;',
-        'data':[this.placesVisted, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle, this.id],
-      }
-    ],
+  Article.prototype.updateRecord = function(callback){
+    webDB.execute(
+      [
+        {
+          'sql': 'UPDATE articles SET placesVisted = ?, placesNotVisited = ?, blogDate = ?, blog = ?, blogTitle =?;',
+          'data':[this.placesVisted, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle, this.id],
+        }
+      ],
     callback
   );
-};
+  };
 
   Article.loadAll = function(rows){
     console.log('loadAll run');
@@ -129,24 +129,24 @@ Article.prototype.updateRecord = function(callback){
 
   Article.fetchAll = function(next){
     console.log('fetchAll run');
-     webDB.execute('SELECT * FROM articles ORDER BY blogDate DESC', function(rows){
-     if (rows.length){
-       Article.loadAll(rows);
-       next();
-     } else{
-       $.getJSON('data/scriptData.json', function(rawData){
-        rawData.forEach(function(item){
-          var article = new Article(item);
-          article.insertRecord();
+    webDB.execute('SELECT * FROM articles ORDER BY blogDate DESC', function(rows){
+      if (rows.length){
+        Article.loadAll(rows);
+        next();
+      } else{
+        $.getJSON('data/scriptData.json', function(rawData){
+          rawData.forEach(function(item){
+            var article = new Article(item);
+            article.insertRecord();
+          });
+          webDB.execute('SELECT * FROM articles', function(rows){
+            Article.loadAll(rows);
+            next();
+          });
         });
-        webDB.execute('SELECT * FROM articles', function(rows){
-          Article.loadAll(rows);
-          next();
-        });
-      });
-       }
-     });
-   };
+      }
+    });
+  };
 
 
 

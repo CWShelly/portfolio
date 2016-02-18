@@ -4,6 +4,7 @@
     $('.github-display').hide();
     $('#display-about').show();
   };
+  
   module.aboutController = aboutController;
 })(window);
 
