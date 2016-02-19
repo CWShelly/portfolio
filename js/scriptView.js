@@ -1,25 +1,25 @@
 (function(module){
 
-var scriptView = {};
+  var scriptView = {};
 
 
 
-scriptView.populateFilters = function(){
-  console.log('pop filters run');
+  scriptView.populateFilters = function(){
+    console.log('pop filters run');
 
-  $('article').each(function(){
-    if(!$(this).hasClass('date')){
-      var val = $(this).find('#date').text();
+    $('article').each(function(){
+      if(!$(this).hasClass('date')){
+        var val = $(this).find('#date').text();
       // console.log(this);
-      var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
+        var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
       // console.log(optionTag);
-      if ($('#date-filters option[value="' + val + '"]').length === 0) {
-        $('#date-filters').append(optionTag);
+        if ($('#date-filters option[value="' + val + '"]').length === 0) {
+          $('#date-filters').append(optionTag);
 
+        }
       }
-    }
-  });
-};
+    });
+  };
 
 
 scriptView.handleDateFilter = function(){
@@ -34,35 +34,35 @@ scriptView.handleDateFilter = function(){
 };
 
 
-scriptView.handleVisited = function(){
-  $('#visited').on('click', function(){
-    $('.github-display').hide();
-    $('#display-about').show();
-  });
-}
+  scriptView.handleVisited = function(){
+    $('#visited').on('click', function(){
+      $('.github-display').hide();
+      $('#display-about').show();
+    });
+  };
 
-scriptView.handleResume = function(){
-  $('#resume').on('click', function(){
-    $('#display-about').hide();
-    $('.github-display').show();
-  });
-};
+  scriptView.handleResume = function(){
+    $('#resume').on('click', function(){
+      $('#display-about').hide();
+      $('.github-display').show();
+    });
+  };
 
 
 
-scriptView.initIndexPage = function(){
-  console.log('initIndex run');
+  scriptView.initIndexPage = function(){
+    console.log('initIndex run');
   // scriptView.populateFilters();
 
-  Article.all.forEach(function(a){
+    Article.all.forEach(function(a){
     // var content3placeholder = $('.content3-placeholder');
     // console.log(content3placeholder);
     // console.log(a);
 
-  var template = Handlebars.compile($('#script-template').text());
-  var template2 = Handlebars.compile($('#wander-template').text());
+      var template = Handlebars.compile($('#script-template').text());
+      var template2 = Handlebars.compile($('#wander-template').text());
 
-    $('.content3-placeholder').append(a.toHtml());
+      $('.content3-placeholder').append(a.toHtml());
     // console.log('the line after appendtohtml');
 
     $('.content2-placeholder').append(a.toWanderHtml());
