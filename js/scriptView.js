@@ -62,10 +62,10 @@ scriptView.handleDateFilter = function(){
       var template = Handlebars.compile($('#script-template').text());
       var template2 = Handlebars.compile($('#wander-template').text());
 
-      $('.content3-placeholder').append(a.toHtml());
+      // $('.content3-placeholder').append(a.toHtml());
     // console.log('the line after appendtohtml');
 
-    $('.content2-placeholder').append(a.toWanderHtml());
+    // $('.content2-placeholder').append(a.toWanderHtml());
     // console.log('the line after Wanderappendtohtml');
 
   });
