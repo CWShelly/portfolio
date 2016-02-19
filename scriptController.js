@@ -7,10 +7,10 @@
 
     Article.fetchAll(scriptView.initIndexPage);
 
+console.log('fetchAll(scriptView.initIndex run)');
 
-
-    $('main > section').hide();
-    $('#articles').show();
+    // $('main > section').hide();
+    // $('#articles').show();
   };
 
   module.articlesController = articlesController;
