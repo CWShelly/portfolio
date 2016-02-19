@@ -33,15 +33,6 @@ scriptView.handleDateFilter = function(){
   });
 };
 
-// scriptView.handleAbout = function(){
-//   console.log('about');
-//   $('#about').on('click', function(){
-//     // $('.feature-template').hide();
-//     // $('#work-template').show();
-//     $('.github-display').hide();
-//     $('#display-about').show();
-//   });
-// };
 
 scriptView.handleVisited = function(){
   $('#visited').on('click', function(){
