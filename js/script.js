@@ -139,7 +139,7 @@
             var article = new Article(item);
             article.insertRecord();
           });
-          webDB.execute('SELECT * FROM articles', function(rows){
+          WebDB.execute('SELECT * FROM articles', function(rows){
             Article.loadAll(rows);
             next();
           });
