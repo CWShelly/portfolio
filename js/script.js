@@ -78,7 +78,7 @@
       [
         {
           'sql':'INSERT INTO articles(placesVisited, placesNotVisited,blogDate,     blog, blogTitle) VALUES(?,?,?,?,?);',
-          'data':[this.placesVisted, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle],
+          'data':[this.placesVisited, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle],
         }
       ],
     callback
@@ -102,8 +102,8 @@
     webDB.execute(
       [
         {
-          'sql': 'UPDATE articles SET placesVisted = ?, placesNotVisited = ?, blogDate = ?, blog = ?, blogTitle =?;',
-          'data':[this.placesVisted, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle, this.id],
+          'sql': 'UPDATE articles SET placesVisited = ?, placesNotVisited = ?, blogDate = ?, blog = ?, blogTitle =?;',
+          'data':[this.placesVisited, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle, this.id],
         }
       ],
     callback
