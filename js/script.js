@@ -48,7 +48,7 @@
 
 
   Article.createTable = function(callback){
-    webDB.execute(
+    WebDB.execute(
     'CREATE TABLE IF NOT EXISTS articles(' +
     'id INTEGER PRIMARY KEY,' +
     'placesVisted VARCHAR(255) NOT NULL,' +
@@ -67,14 +67,14 @@
 
 
   Article.truncateTable = function(callback){
-    webDB.execute(
+    WebDB.execute(
     'DELETE FROM articles;',
     callback
   );
   };
 
   Article.prototype.insertRecord = function(callback){
-    webDB.execute(
+    WebDB.execute(
       [
         {
           'sql':'INSERT INTO articles(placesVisited, placesNotVisited,blogDate,     blog, blogTitle) VALUES(?,?,?,?,?);',
@@ -86,7 +86,7 @@
   };
 
   Article.prototype.deleteRecord = function(callback){
-    webDB.execute(
+    WebDB.execute(
       [
         {
           'sql': 'DELETE FROM articles WHERE id = ?;',
@@ -99,7 +99,7 @@
 
 
   Article.prototype.updateRecord = function(callback){
-    webDB.execute(
+    WebDB.execute(
       [
         {
           'sql': 'UPDATE articles SET placesVisted = ?, placesNotVisited = ?, blogDate = ?, blog = ?, blogTitle =?;',
@@ -129,7 +129,7 @@
 
   Article.fetchAll = function(next){
     console.log('fetchAll run');
-    webDB.execute('SELECT * FROM articles ORDER BY blogDate DESC', function(rows){
+    WebDB.execute('SELECT * FROM articles ORDER BY blogDate DESC', function(rows){
       if (rows.length){
         Article.loadAll(rows);
         next();
