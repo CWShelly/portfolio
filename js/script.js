@@ -51,7 +51,7 @@
     webDB.execute(
     'CREATE TABLE IF NOT EXISTS articles(' +
     'id INTEGER PRIMARY KEY,' +
-    'placesVisted VARCHAR(255) NOT NULL,' +
+    'placesVisited VARCHAR(255) NOT NULL,' +
     'placesNotVisited VARCHAR(255) NOT NULL,' +
     'blogDate DATETIME,' +
     'blog VARCHAR(255) NOT NULL,' +
@@ -77,7 +77,7 @@
     webDB.execute(
       [
         {
-          'sql':'INSERT INTO articles(placesVisited, placesNotVisited,blogDate,     blog, blogTitle) VALUES(?,?,?,?,?);',
+          'sql':'INSERT INTO articles(placesVisited, placesNotVisited, blogDate,     blog, blogTitle) VALUES(?,?,?,?,?);',
           'data':[this.placesVisited, this.placesNotVisited, this.blogDate, this.blog, this.blogTitle],
         }
       ],
