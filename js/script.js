@@ -132,6 +132,7 @@
     webDB.execute('SELECT * FROM articles ORDER BY blogDate DESC', function(rows){
       if (rows.length){
         Article.loadAll(rows);
+        console.log(rows);
         next();
       } else{
         $.getJSON('data/scriptData.json', function(rawData){
