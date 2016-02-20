@@ -7,10 +7,10 @@
   repos.requestRepos = function(callback) {
 
     $.ajax({
-      url: 'https://api.github.com/users/ksgifford/repos' +
+      url: 'https://github.com/CWShelly?tab=repositories' +
             '?per_page=5&sort=updated',
       type: 'GET',
-      headers: {'Authorization': 'token ' + gitHubToken},
+      headers: {'Authorization': 'token ' + GITHUB_TOKEN},
       success: function(data, message, xhr) {
         repos.all = data;
         console.log(repos.all);

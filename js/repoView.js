@@ -3,30 +3,27 @@
 (function(module) {
   var repoView = {};
 
-  // var ui = function() {
-  //   var $about = $('.github-display');
-  //
-  //   $about.find('#display-about').empty();
-  //   // $about.show().siblings().hide();
-  // };
+  var ui = function() {
+    var $about = $('#display');
+
+    $about.find('ul').empty();
+    // $about.show().siblings().hide();
+  };
 
 
   var render = function(repo) {
     // return($('li here').html(repo.name + ' - ' + repo.description));
+    return($('<li>').html(repo.name + " - " + repo.description));
 
   };
 
 
   repoView.index = function() {
-    //
-    // ui();
 
+    ui();
 
-    $('#display-about').append(
-      // repos.with('description').map(render)
-          // repos.with('description').map();
-// 'placeholder text'
-
+    $('#display ul').append(
+      repos.with('description').map(render)
     );
   };
 
