@@ -10,7 +10,7 @@
   };
 
   var render = function(repo) {
-    return($('<li>').html(repo.name));
+    return($('<li>').html('<a href = "' + repo.html_url + '">' + repo.full_name + '</a>'));
 
   };
 
@@ -19,7 +19,7 @@
     ui();
 
     $('#display-work ul').append(
-      repos.with('name').map(render)
+      repos.with('full_name').map(render)
     );
   };
 
