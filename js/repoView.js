@@ -16,7 +16,7 @@
   };
 
   repoView.index = function() {
-console.log('repoviewindex');
+    console.log('repoviewindex');
     ui();
 
     $('#display ul').append(
