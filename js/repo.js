@@ -4,18 +4,17 @@
 
   repos.all = [];
 
-  repos.requestRepos = function(callback) {
 
-    $.ajax({
-      url: 'https://github.com/CWShelly?tab=repositories' +
-            '?per_page=5&sort=updated',
-      type: 'GET',
-      headers: {'Authorization': 'token ' + GITHUB_TOKEN},
-      success: function(data, message, xhr) {
-        repos.all = data;
-        console.log(repos.all);
-      }
-    }).done(callback);
+  repos.requestRepos = function(callback) {
+    console.log('request has gone out');
+    $.get('/github/users/CWShelly/repos' +
+    '?per_page=100' +
+    '&sort=updated')
+    .done(function(data, message, xhr){
+      repos.all = data;
+      console.log(data);
+    })
+    .done(callback);
   };
 
   repos.with = function(attr) {

@@ -1,10 +1,14 @@
 (function(module){
   var aboutController = {};
   aboutController.index = function(){
-    // $('.github-display').hide();
-    console.log('we');
-    $('#display-about').hide();
+    // repos.requestRepos(repoView.index);
+
+
+    console.log('about index');
+    repos.requestRepos(repoView.index);
   };
+
+  console.log('about');
 
   module.aboutController = aboutController;
 })(window);

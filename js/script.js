@@ -53,7 +53,7 @@
     'id INTEGER PRIMARY KEY,' +
     'placesVisited VARCHAR(255) NOT NULL,' +
     'placesNotVisited VARCHAR(255) NOT NULL,' +
-    'blogDate DATETIME,' +
+    'blogDate VARCHAR(255) NOT NULL,' +
     'blog VARCHAR(255) NOT NULL,' +
     'blogTitle TEXT NOT NULL);',
 
@@ -149,6 +149,26 @@
     });
   };
 
+Article.allDates = function(callback){
+  webDB.execute('SELECT DISTINCT blogDate FROM articles;', callback)
+};
+
+Article.allTitles = function(callback){
+  webDB.execute('SELECT DISTINCT blogTitle FROM articles;', callback)
+};
+
+  Article.findWhere = function(field, value, callback){
+    console.log(value);
+    webDB.execute(
+      [
+        {
+          sql:'SELECT * FROM articles WHERE ' + field + ' = ?;',
+          data:[value]
+        }
+      ],
+    callback
+  );
+  };
 
 
     // $.ajax({
