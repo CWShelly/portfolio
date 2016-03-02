@@ -8,100 +8,86 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/module.css">
-    <title>Portfolio2(Staged)</title>
-
+    <title>Portfolio</title>
   </head>
   <body>
 
     <script id = "script-template" type = "text/x-handlebars-template">
       <article id = "article-container" data-date = "{{blogDate}}">
-  <h4 class = "date" id = "date">{{blogDate}}</h4>
-{{blog}}
-</article>
+        <h4 class = "date" id = "date">{{blogDate}}</h4>
+          {{blog}}
+      </article>
     </script>
 
     <script id = "wander-template" type = "text/x-handlebars-template">
       <p>{{placesVisited}}</p><p>{{placesNotVisited}}</p>
-
     </script>
 
     <script id = "option-template" type = "text/x-handlebars-template">
       <option value ="{{val}}">{{val}}</option>
     </script>
 
+    <header>
 
+      <section id = "header">
+         <h1 class = "marquee"> Shelly Yusuf</h1>
+         <ul id = "filters">
+               <li>
+                 <select id="title-filters">
+                   <option value ="">Filter by Title </option>
+                 </select>
+               </li>
+          </ul>
 
-<header>
+        <ul id = "main-nav">
+         <li class ="main-nav"><a id = "blog" href="#">Blog</a></li>
+         <li class ="main-nav"><a id = "about" href="/about">etc</a> </li>
+        </ul>
 
-  <section id = "header">
-   <h1 class = "marquee"> Shelly Yusuf</h1>
-   <ul id = "filters">
-           <li>
-             <select id="title-filters">
-               <option value ="">Filter by Title </option>
-             </select>
-           </li>
-         </ul>
+      </section>
 
-
-
-    <ul id = "main-nav">
-
-     <li class ="main-nav"><a id = "blog" href="#">Blog</a></li>
-     <li class ="main-nav"><a id = "about" href="/about">etc</a> </li>
-    </ul>
-
-  </section>
-
-<main>
+     <main>
 <!--
 <ul id ="main-templates"> -->
-  <li class = "feature-template"><a id = "wander-template" href="#">Wander</a>
-<ul>
-   <a id = "visted" href="#">Places I've been</a>
-   <a id = "notVisited" href="#"> ... or not.</a>
-  <li class = "content2-placeholder">  </li>
-</ul>
-  </li>
+      <li class = "feature-template"><a id = "wander-template" href="#">Wander</a>
+        <ul>
+           <a id = "visted" href="#">Places I've been</a>
+           <a id = "notVisited" href="#"> ... or not.</a>
+          <li class = "content2-placeholder">  </li>
+        </ul>
+      </li>
 
-  <li class = "feature-template" id = "display"><a id = "work-template" href="#"><p class = "github-display">Work</p><p id = "display-work">Here is work</p></a>
-    <ul>
-<li>works</li>
-
-    </ul>
-  </li>
-<!-- </ul> -->
-
-  <li class = "feature-template" id = "blog-template"><a id = "write-template" href="#">Write</a>
-    <ul>
-      <li class = "content3-placeholder" id = "blog-date"></li>
-    </ul>
-    </li>
+      <li class = "feature-template" id = "display">
+        <ul>
+          <li>Work</li>
+        </ul>
+      </li>
 
 
-</ul>
+      <li class = "feature-template" id = "blog-template"><a id = "write-template" href="#">Write</a>
+          <ul>
+            <li class = "content3-placeholder" id = "blog-date"></li>
+          </ul>
+        </li>
 
-</main>
+  </main>
 
-</body>
 
 
     <script src="js/jquery-1.12.0.min.js"></script>
-    <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js">
-    </script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="js/html5sql.js"></script>
-    <script src="webdb.js"></script>
+    <script src="js/webdb.js"></script>
      <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
     <script src="js/script.js"> </script>
     <script src="js/scriptView.js"></script>
 
     <script src ="js/repo.js"></script>
-        <script src ="js/repoView.js"></script>
-  <script src="aboutController.js"></script>
-    <script src="scriptController.js"></script>
-
-        <script src ="routes.js"></script>
+    <script src ="js/repoView.js"></script>
+    <script src="js/aboutController.js"></script>
+    <script src="js/scriptController.js"></script>
+    <script src ="js/routes.js"></script>
 
   </body>
 </html>

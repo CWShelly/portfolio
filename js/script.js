@@ -8,44 +8,7 @@
     },this);
   }
 
-// var notPlaces = ['Middle Earth', 'The Delta Quadrant', 'Mypos'];
-
-
-
-
   Article.all = [];
-
-  // Article.prototype.toHtml = function(){
-  //   var template = Handlebars.compile($('#script-template').text());
-  //   // console.log(this);
-  //   // console.log("handlebars compiled");
-  //   return template(this);
-  //
-  // };
-
-//   Article.prototype.toWanderHtml = function(){
-//     var template = Handlebars.compile($('#wander-template').text());
-//     // console.log(this);
-//     // console.log("handlebars compiled");
-//     return template(this);
-//
-// ;
-
-
-
-  //
-  // Article.allX = function(){
-  //   var notPlaces = ["Middle Earth", "The Delta Quadrant", "Mypos"];
-  //   return Article.all(function(x){
-  //     return x.placesVisited;
-  //     return x.placesNotVisited;
-  //     return x.placesVisted.concat(placesNotVisited);
-  //   })
-  //   .reduce(function(a,b){
-  //     return a + b;
-  //   });
-  // };
-
 
   Article.createTable = function(callback){
     webDB.execute(
@@ -149,13 +112,13 @@
     });
   };
 
-Article.allDates = function(callback){
-  webDB.execute('SELECT DISTINCT blogDate FROM articles;', callback)
-};
+  Article.allDates = function(callback){
+    webDB.execute('SELECT DISTINCT blogDate FROM articles;', callback);
+  };
 
-Article.allTitles = function(callback){
-  webDB.execute('SELECT DISTINCT blogTitle FROM articles;', callback)
-};
+  Article.allTitles = function(callback){
+    webDB.execute('SELECT DISTINCT blogTitle FROM articles;', callback);
+  };
 
   Article.findWhere = function(field, value, callback){
     console.log(value);
@@ -169,22 +132,6 @@ Article.allTitles = function(callback){
     callback
   );
   };
-
-
-    // $.ajax({
-    //   type:'HEAD',
-    //   url:'data/scriptData.json',
-    //   success:function(data, message, xhr){
-    //     console.log(xhr);
-    //     var eTag = xhr.getResponseHeader('eTag');
-    //     console.log(eTag);
-    //     if(!localStorage.eTag || eTag !== localStorage.eTag){
-    //       // console.log('after localStorage');
-    //       localStorage.eTag = eTag;
-    //         // Article.getAll();
-    //     }
-
-
 
   module.Article = Article;
 
