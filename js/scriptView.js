@@ -4,76 +4,90 @@
 
 
 
+  // scriptView.populateFilters = function(){
+  //   console.log('pop filters run');
+  //
+  //   $('article').each(function(){
+  //     console.log('each');
+  //     if(!$(this).hasClass('date')){
+  //       console.log('if pop');
+  //       var val = $(this).find('#date').text();
+  //     // console.log(this);
+  //       var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
+  //     // console.log(optionTag);
+  //       if ($('#date-filters option[value="' + val + '"]').length === 0) {
+  //         console.log('if date');
+  //         $('#date-filters').append(optionTag);
+  //
+  //       }
+  //     }
+  //   });
+  // };
+
+var render = function(article){
+  var template = Handlebars.compile($('#script-template').text());
+
+  return template(article);
+};
+
   scriptView.populateFilters = function(){
-    console.log('pop filters run');
-
-    $('article').each(function(){
-      if(!$(this).hasClass('date')){
-        var val = $(this).find('#date').text();
-      // console.log(this);
-        var optionTag = '<option value ="'+ val + '">'+ val + '</option>';
-      // console.log(optionTag);
-        if ($('#date-filters option[value="' + val + '"]').length === 0) {
-          $('#date-filters').append(optionTag);
-
-        }
-      }
+    var template = Handlebars.compile($('#option-template').text());
+    console.log('popfilters on2');
+    Article.allTitles(function(rows){
+      if($('#title-filters option').length < 2){
+        $('#title-filters').append(
+          rows.map(function(row){
+            // console.log(row.blogDate);
+            return template({val:row.blogTitle});
+          })
+        );
+      };
     });
   };
 
 
 scriptView.handleDateFilter = function(){
-  $('#date-filters').on('change', function(){
-    // console.log('changed fires');
-    if($(this).val()){
-      console.log($(this).val());
-      $('article').hide();
-      $('article[data-date="'+ $(this).val() + '"]').show();
-    }
+  $('#filters').one('change', 'select', function(){
+    resource = this.id.replace('-filters', '');
+    console.log(resource);
+    console.log(this);
+    page('/' + resource + '/' + $(this).val().replace(/\W+/g, '+'));
   });
 };
 
+  //
+  // scriptView.handleVisited = function(){
+  //   $('#visited').on('click', function(){
+  //     $('.github-display').hide();
+  //     $('#display-about').show();
+  //   });
+  // };
+  //
+  // scriptView.handleResume = function(){
+  //   $('#resume').on('click', function(){
+  //     $('#display-about').hide();
+  //     $('.github-display').show();
+  //   });
+  // };
 
-  scriptView.handleVisited = function(){
-    $('#visited').on('click', function(){
-      $('.github-display').hide();
-      $('#display-about').show();
-    });
-  };
-
-  scriptView.handleResume = function(){
-    $('#resume').on('click', function(){
-      $('#display-about').hide();
-      $('.github-display').show();
-    });
-  };
 
 
-
-  scriptView.initIndexPage = function(){
+  scriptView.initIndexPage = function(articles){
     console.log('initIndex run');
-  // scriptView.populateFilters();
+$('#blog-date').show();
 
-    Article.all.forEach(function(a){
-    // var content3placeholder = $('.content3-placeholder');
-    // console.log(content3placeholder);
-    // console.log(a);
+$('#blog-date article').remove();
 
-      var template = Handlebars.compile($('#script-template').text());
-      var template2 = Handlebars.compile($('#wander-template').text());
+articles.forEach(function(a){
+  $('#blog-date').append(render(a));
+  // console.log(a);
+});
 
-      // $('.content3-placeholder').append(a.toHtml());
-    // console.log('the line after appendtohtml');
 
-    // $('.content2-placeholder').append(a.toWanderHtml());
-    // console.log('the line after Wanderappendtohtml');
-
-  });
-
-scriptView.handleDateFilter();
   scriptView.populateFilters();
+  scriptView.handleDateFilter();
   // scriptView.handleAbout();
-  scriptView.handleResume();
+  // scriptView.handleResume();
   // scriptView.placeCheck();
 
 };

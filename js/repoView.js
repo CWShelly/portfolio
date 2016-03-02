@@ -4,26 +4,22 @@
   var repoView = {};
 
   var ui = function() {
-    var $about = $('#display');
+    var $about = $('#display-work');
 
     $about.find('ul').empty();
-    // $about.show().siblings().hide();
   };
-
 
   var render = function(repo) {
-    // return($('li here').html(repo.name + ' - ' + repo.description));
-    return($('<li>').html(repo.name + " - " + repo.description));
+    return($('<li>').html(repo.name));
 
   };
-
 
   repoView.index = function() {
 
     ui();
 
-    $('#display ul').append(
-      repos.with('description').map(render)
+    $('#display-work ul').append(
+      repos.with('name').map(render)
     );
   };
 
