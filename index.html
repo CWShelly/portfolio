@@ -27,6 +27,12 @@
       <option value ="{{val}}">{{val}}</option>
     </script>
 
+
+    <script id = "stats-template" type = "text/x-handlebars-template">
+
+<li class = "stats-li"> {{numWords}}</li>
+    </script>
+
     <header>
 
       <section id = "header">
@@ -40,8 +46,8 @@
           </ul>
 
         <ul id = "main-nav">
-         <li class ="main-nav"><a id = "blog" href="#">Blog</a></li>
-         <li class ="main-nav"><a id = "about" href="/about">etc</a> </li>
+         <li class ="main-nav"><a id = "blog" href="/stats">stats</a></li>
+         <li class ="main-nav"><a id = "about" href="/work">work</a> </li>
         </ul>
 
       </section>
@@ -49,11 +55,9 @@
      <main>
 <!--
 <ul id ="main-templates"> -->
-      <li class = "feature-template"><a id = "wander-template" href="#">Wander</a>
+      <li class = "feature-template" id = "display-stats">Stats</a>
         <ul>
-           <a id = "visted" href="#">Places I've been</a>
-           <a id = "notVisited" href="#"> ... or not.</a>
-          <li class = "content2-placeholder">  </li>
+         <li>How Many Words</li>
         </ul>
       </li>
 
@@ -83,10 +87,12 @@
 
     <script src="js/script.js"> </script>
     <script src="js/scriptView.js"> </script>
+    <script src = "js/statsView.js"> </script>
 
     <script src ="js/repo.js"> </script>
     <script src ="js/repoView.js"> </script>
     <script src="js/aboutController.js"> </script>
+    <script src = "js/statsController.js"> </script>
     <script src="js/scriptController.js"> </script>
     <script src ="js/routes.js"> </script>
 

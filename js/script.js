@@ -120,6 +120,7 @@
     webDB.execute('SELECT DISTINCT blogTitle FROM articles;', callback);
   };
 
+
   Article.findWhere = function(field, value, callback){
     console.log(value);
     webDB.execute(
@@ -131,6 +132,44 @@
       ],
     callback
   );
+  };
+
+
+  Article.ipsumWords = function(){
+    return Article.all.map(function(article){
+      return article.blog.match(/\b\w+/g).length;
+    })
+    .reduce(function(a,b){
+      console.log(a+b);
+      return a + b;
+    });
+  };
+
+  Article.allTheTitles = function(){
+    return Article.all.map(function(Article){
+      return Article.blogTitle;
+      return{
+        the_title:Article.blogTitle,
+      };
+    });
+  };
+
+  Article.numWordsByTitle = function(){
+    return Article.allTheTitles().map(function(title){
+
+      return{
+        numWords: Article.all.map(function(article){
+          if (article.blogTitle === title){
+            return article.blog.match(/\b\w+/g).length;
+          } else{
+            return 0;
+          }
+        })
+       .reduce(function(a,b){
+         return a + b;
+       })
+      };
+    });
   };
 
   module.Article = Article;
